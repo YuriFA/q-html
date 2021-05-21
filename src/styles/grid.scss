@@ -1,0 +1,25 @@
+.grid-main {
+  display: flex;
+  flex-direction: row;
+
+  @media (max-width: $screen-sm) {
+    flex-wrap: wrap;
+  }
+}
+
+.grid-main__col-9 {
+  flex-basis: calc((100% / 20) * 8.8); 
+  padding-left: 2px;
+
+  @media (max-width: $screen-sm) {
+    flex-basis: 100%;
+  }
+}
+
+.grid-main__col-11 {
+  flex-basis: calc((100% / 20) * 11.2); 
+
+  @media (max-width: $screen-sm) {
+    flex-basis: 100%;
+  }
+}

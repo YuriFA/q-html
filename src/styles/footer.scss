@@ -1,0 +1,10 @@
+/* footer styles here */
+.footer {
+  padding-top: 208px;
+  padding-bottom: 87px;
+
+  @media (max-width: $screen-md) {
+    padding-top: 68px;
+    padding-bottom: 40px;
+  }
+}

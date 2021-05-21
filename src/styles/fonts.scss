@@ -1,0 +1,28 @@
+/* EditorialNew */
+@font-face {
+  font-family: 'EditorialNew';
+  font-style: italic;
+  font-swap: swap;
+  font-weight: 400;
+  src: local('EditorialNew'), local('Editorial New'),
+    url('../fonts/EditorialNew-Italic.ttf') format('truetype'),
+}
+
+/* GraphikLCG */
+@font-face {
+  font-family: 'Graphik LCG';
+  font-style: normal;
+  font-swap: swap;
+  font-weight: 400;
+  src: local('Graphik LCG'), local('Graphik LCG'),
+    url('../fonts/GraphikLCG-Regular.ttf') format('truetype'),
+}
+
+@font-face {
+  font-family: 'Graphik LCG';
+  font-style: normal;
+  font-swap: swap;
+  font-weight: 600;
+  src: local('Graphik LCG'), local('Graphik LCG'),
+    url('../fonts/GraphikLCG-Semibold.ttf') format('truetype'),
+}

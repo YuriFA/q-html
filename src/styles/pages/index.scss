@@ -1,0 +1,44 @@
+.hero {
+  display: flex;
+  flex-direction: row;
+  padding-top: 40px;
+  padding-bottom: 97px;
+
+  @media (max-width: $screen-md) {
+    flex-direction: column;
+  }
+
+  @media (max-width: $screen-sm) {
+    display: block;
+    padding-top: 31px;
+    padding-bottom: 56px;
+    overflow: hidden;
+  }
+}
+
+.hero__left {
+  margin-top: 104px;
+
+  @media (max-width: $screen-md-x) {
+    flex-grow: 1;
+  }
+
+  @media (max-width: $screen-sm) {
+    margin-top: 0;
+  }
+}
+
+.hero__right {
+  @media (max-width: $screen-md-x) {
+    flex-basis: 35%;
+    padding-left: 0;
+  }
+}
+
+.hero__title {
+  margin-bottom: 33px;
+
+  @media (max-width: $screen-sm) {
+    margin-bottom: 8px;
+  }
+}
