@@ -1,12 +1,13 @@
 @import "~normalize.css/normalize.css";
+@import '~accordion-js/dist/accordion.min.css';
 
 @import "./variables";
 @import "./mixins";
-@import "./grid";
 @import "./common";
 @import "./fonts";
 @import "./icons";
 @import "./container";
 @import "./header";
 @import "./footer";
+@import "./partials/accordion";
 @import "./pages/index";

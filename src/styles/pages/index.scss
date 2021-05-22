@@ -1,44 +1,232 @@
+main {
+  overflow: hidden;
+}
+
 .hero {
-  display: flex;
-  flex-direction: row;
-  padding-top: 40px;
-  padding-bottom: 97px;
-
-  @media (max-width: $screen-md) {
-    flex-direction: column;
-  }
+  padding-top: 116px;
+  padding-bottom: 31px;
 
   @media (max-width: $screen-sm) {
-    display: block;
-    padding-top: 31px;
-    padding-bottom: 56px;
-    overflow: hidden;
-  }
-}
-
-.hero__left {
-  margin-top: 104px;
-
-  @media (max-width: $screen-md-x) {
-    flex-grow: 1;
-  }
-
-  @media (max-width: $screen-sm) {
-    margin-top: 0;
-  }
-}
-
-.hero__right {
-  @media (max-width: $screen-md-x) {
-    flex-basis: 35%;
-    padding-left: 0;
+    padding-top: 39px;
+    padding-bottom: 67px;
   }
 }
 
 .hero__title {
-  margin-bottom: 33px;
+  margin-bottom: 52px;
+  font-size: 146px;
+  font-weight: 500;
+  line-height: 95%;
+  letter-spacing: -0.07em;
 
   @media (max-width: $screen-sm) {
-    margin-bottom: 8px;
+    margin-bottom: 38px;
+    font-size: 67px;
+    line-height: 98%;
+    letter-spacing: -0.06em;
+  }
+}
+
+.hero__title--italic {
+  font-family: $font-secondary;
+  white-space: nowrap;
+  font-weight: 400;
+}
+
+.hero__notice {
+  max-width: 680px;
+  margin-bottom: 156px;
+
+  @media (max-width: $screen-sm) {
+    max-width: 325px;
+    margin-bottom: 80px;
+  }
+}
+
+.button-submit {
+  @media (max-width: $screen-sm) {
+    & > .icon-arrow-right {
+      width: 27px;
+      height: 20px;
+    }
+  }
+}
+
+.ill-1-container {
+  position: relative;
+  right: -50%;
+  display: inline-block;
+
+  img {
+    position: relative;
+    left: -50%;
+    mix-blend-mode: darken;
+  }
+
+  @media (max-width: $screen-sm) {
+    img {
+      width: auto;
+      height: 400px;
+    }
+  }
+}
+
+.section-features {
+  padding-top: 189px;
+  padding-bottom: 76px;
+
+  @media (max-width: $screen-sm) {
+    padding-top: 82px;
+    padding-bottom: 36px;
+  }
+}
+
+.features__item {
+  &:last-child {
+    .features__notice {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.features__title {
+  margin-bottom: 36px;
+
+  @media (max-width: $screen-sm) {
+    font-size: 18px;
+    line-height: 120%;
+  }
+}
+
+.features__number {
+  margin-right: 5px;
+}
+
+.features__notice {
+  margin-bottom: 200px;
+  padding-bottom: 57px;
+  border-bottom: 1px solid $color-main;
+  font-weight: 500;
+  font-size: 70px;
+  line-height: 105%;
+  letter-spacing: -0.07em;
+
+  @media (max-width: $screen-sm) {
+    margin-bottom: 84px;
+    padding-bottom: 38px;
+    font-size: 32px;
+    line-height: 120%;
+  }
+}
+
+.features__image-container {
+  position: relative;
+  right: -50%;
+  display: inline-block;
+}
+
+.features__image {
+  position: relative;
+  left: -50%;
+  width: calc(100vw - 0.06vw - 0.07vw);
+  max-width: 1249px;
+  margin-top: -63px;
+  margin-bottom: 159px;
+  mix-blend-mode: darken;
+
+  // margin-left: -70px;
+
+  @media (max-width: $screen-sm) {
+    width: auto;
+    height: 312px;
+    margin-top: -12px;
+    margin-bottom: 78px;
+
+    // margin-left: -84px;
+  }
+}
+
+.features__image--bigger {
+  margin-top: -38px;
+  margin-bottom: 146px;
+
+  @media (max-width: $screen-sm) {
+    margin-top: -10px;
+    margin-bottom: 78px;
+  }
+}
+
+.section-submit-sticky {
+  position: sticky;
+  top: 0;
+  padding-top: 24px;
+  z-index: $z-index-sticky;
+
+  @media (max-width: $screen-sm) {
+    padding-top: 26px;
+  }
+}
+
+/* FAQ */
+.section-faq {
+  padding-top: 140px;
+
+  @media (max-width: $screen-sm) {
+    padding-top: 134px;
+  }
+}
+
+.faq {
+  padding-right: 157px;
+
+  @media (max-width: $screen-sm) {
+    padding-right: 0;
+  }
+}
+
+.faq__item {
+  padding-bottom: 60px;
+
+  @media (max-width: $screen-sm) {
+    padding-bottom: 20px;
+  }
+}
+
+.faq__title {
+  margin-bottom: 40px;
+  font-size: 22px;
+  line-height: 101%;
+
+  @media (max-width: $screen-sm) {
+    margin-bottom: 32px;
+    font-size: 26px;
+    line-height: 120%;
+  }
+}
+
+.faq-questions__item {
+  padding-bottom: 48px;
+}
+
+.faq-questions__title {
+  padding-left: 54px;
+  font-size: 32px;
+  line-height: 120%;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+
+  @media (max-width: $screen-sm) {
+    font-size: 25px;
+  }
+}
+
+.faq-questions__panel-content {
+  padding-top: 40px;
+  padding-bottom: 32px;
+  padding-left: 54px;
+
+  @media (max-width: $screen-sm) {
+    padding-top: 16px;
+    padding-bottom: 30px;
   }
 }

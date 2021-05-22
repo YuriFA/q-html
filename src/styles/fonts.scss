@@ -13,9 +13,27 @@
   font-family: 'Graphik LCG';
   font-style: normal;
   font-swap: swap;
+  font-weight: 300;
+  src: local('Graphik LCG'), local('Graphik LCG'),
+    url('../fonts/GraphikLCG-Light.ttf') format('truetype'),
+}
+
+@font-face {
+  font-family: 'Graphik LCG';
+  font-style: normal;
+  font-swap: swap;
   font-weight: 400;
   src: local('Graphik LCG'), local('Graphik LCG'),
     url('../fonts/GraphikLCG-Regular.ttf') format('truetype'),
+}
+
+@font-face {
+  font-family: 'Graphik LCG';
+  font-style: normal;
+  font-swap: swap;
+  font-weight: 500;
+  src: local('Graphik LCG'), local('Graphik LCG'),
+    url('../fonts/GraphikLCG-Medium.ttf') format('truetype'),
 }
 
 @font-face {

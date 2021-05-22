@@ -3,7 +3,8 @@ $font-secondary: EditorialNew, sans-serif;
 
 $color-main: #262626;
 $color-secondary: #DE5529;
-$color-bg: #F1F1EC;
+$color-background: #F1F1EC;
+$color-white: #FFFFFF;
 
 $transition-duration: 0.3s;
 $transition-duration-small: 0.2s;
@@ -16,3 +17,5 @@ $screen-md-x: 1158px;
 $screen-md-xx: 1230px;
 $screen-lg: 1366px;
 $screen-xl: 1440px;
+
+$z-index-sticky: 100;
