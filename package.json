@@ -38,6 +38,7 @@
     "micromodal": "^0.4.6",
     "normalize.css": "^8.0.1",
     "nouislider": "^14.6.4",
+    "postcss-pxtorem": "^4.0.0",
     "rellax": "^1.12.1",
     "swiper": "^6.5.1",
     "throttle-debounce": "^3.0.1",

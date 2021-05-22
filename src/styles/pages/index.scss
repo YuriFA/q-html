@@ -1,7 +1,3 @@
-main {
-  overflow: hidden;
-}
-
 .hero {
   padding-top: 116px;
   padding-bottom: 31px;
@@ -31,6 +27,7 @@ main {
   font-family: $font-secondary;
   white-space: nowrap;
   font-weight: 400;
+  font-style: italic;
 }
 
 .hero__notice {

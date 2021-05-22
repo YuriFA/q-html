@@ -14,11 +14,27 @@ ul {
 html {
   font-size: 62.5%;
 
+  @media (max-width: $screen-md-xx) {
+    font-size: 58.5%;
+  }
+
+  @media (max-width: $screen-md-x) {
+    font-size: 54.5%;
+  }
+
   @media (max-width: $screen-md) {
-    font-size: 53.5%;
+    font-size: 50.5%;
+  }
+
+  @media (max-width: $screen-sm-x) {
+    font-size: 42.5%;
   }
 
   @media (max-width: $screen-sm) {
+    font-size: 70.5%;
+  }
+
+  @media (max-width: $screen-xs) {
     font-size: 62.5%;
   }
 }
@@ -31,7 +47,11 @@ body {
   background-color: $color-background;
   color: #000000;
 
-  @media (max-width: $screen-sm) {
+  @media (max-width: $screen-md) {
+    font-size: 24px;
+  }
+
+  @media (max-width: $screen-xs) {
     font-size: 20px;
   }
 }

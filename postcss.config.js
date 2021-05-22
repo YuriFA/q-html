@@ -19,5 +19,9 @@ module.exports = {
     require('postcss-inline-svg')({
       path: './src/',
     }),
+    require('postcss-pxtorem')({
+      rootValue: 10,
+      selectorBlackList: ['body'],
+    }),
   ],
 };
