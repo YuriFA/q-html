@@ -49,6 +49,10 @@
   }
 }
 
+.section-ill-1 {
+  overflow: hidden;
+}
+
 .ill-1-container {
   position: relative;
   right: -50%;
@@ -71,6 +75,7 @@
 .section-features {
   padding-top: 189px;
   padding-bottom: 76px;
+  overflow: hidden;
 
   @media (max-width: $screen-sm) {
     padding-top: 82px;
@@ -203,6 +208,50 @@
 
 .faq-questions__item {
   padding-bottom: 48px;
+
+  &.is-active {
+    .faq-questions__expand {
+      background-color: $color-main;
+
+      &::before,
+      &::after {
+        transform: none;
+        background-color: $color-background;
+      }
+    }
+  }
+}
+
+.faq-questions__expand {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  display: block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid $color-main;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: calc(50% - 3px / 2);
+    left: calc(50% - 12px / 2);
+    width: 12px;
+    height: 3px;
+    transition: transform 500ms ease;
+    background-color: $color-main;
+  }
+
+  &::after {
+    transform-origin: center;
+    transform: rotate(90deg);
+  }
+
+  &::before {
+    transform: rotate(180deg);
+  }
 }
 
 .faq-questions__title {
@@ -225,5 +274,75 @@
   @media (max-width: $screen-sm) {
     padding-top: 16px;
     padding-bottom: 30px;
+  }
+}
+
+.faq-alphabetic {
+  margin-left: -54px;
+  margin-right: 7%;
+}
+
+.faq-alphabetic__item {
+  position: relative;
+  padding-left: 54px;
+  font-size: 24px;
+  line-height: 30px;
+  margin-bottom: 30px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:nth-child(1) .faq-alphabetic__id::before {
+    content: "A";
+  }
+
+  &:nth-child(2) .faq-alphabetic__id::before {
+    content: "B";
+  }
+
+  &:nth-child(3) .faq-alphabetic__id::before {
+    content: "C";
+  }
+
+  &:nth-child(4) .faq-alphabetic__id::before {
+    content: "D";
+  }
+
+  &:nth-child(5) .faq-alphabetic__id::before {
+    content: "E";
+  }
+
+  &:nth-child(6) .faq-alphabetic__id::before {
+    content: "F";
+  }
+  
+  &:nth-child(7) .faq-alphabetic__id::before {
+    content: "G";
+  }
+
+  &:nth-child(8) .faq-alphabetic__id::before {
+    content: "H";
+  }
+}
+
+.faq-alphabetic__id {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid $color-main;
+
+  &::before {
+    content: '';
+    margin-right: 1px;
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 500;
   }
 }
