@@ -41,6 +41,10 @@
 }
 
 .button-submit {
+  & > .icon-arrow-right {
+    margin-left: 20px;
+  }
+
   @media (max-width: $screen-sm) {
     & > .icon-arrow-right {
       width: 27px;
@@ -61,6 +65,7 @@
   img {
     position: relative;
     left: -50%;
+    max-width: 100%;
     mix-blend-mode: darken;
   }
 

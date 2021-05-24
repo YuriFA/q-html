@@ -88,6 +88,12 @@ body {
   text-align: left;
   color: $color-main;
 
+  @media (max-width: $screen-md) {
+    max-width: 270px;
+    height: 80px;
+    padding: 0 34px 0 31px;
+  }
+
   @media (max-width: $screen-sm) {
     max-width: 253px;
     height: 88px;
