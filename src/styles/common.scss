@@ -72,46 +72,6 @@ body {
   text-decoration: none;
 }
 
-.button {
-  @include button-reset;
-
-  display: inline-flex;
-  align-items: center;
-  max-width: 320px;
-  height: 102px;
-  padding: 0 44px 0 41px;
-  font-size: 22px;
-  line-height: 130%;
-  font-weight: 500;
-  letter-spacing: -0.05em;
-  border-radius: 134px;
-  text-align: left;
-  color: $color-main;
-
-  @media (max-width: $screen-md) {
-    max-width: 270px;
-    height: 80px;
-    padding: 0 34px 0 31px;
-  }
-
-  @media (max-width: $screen-sm) {
-    max-width: 253px;
-    height: 88px;
-    padding: 0 32px 0 29px;
-    font-size: 18px;
-    letter-spacing: -.05em;
-  }
-}
-
-.button--main {
-  background-color: $color-secondary;
-  color: $color-white;
-}
-
-.button--block {
-  width: 100%;
-}
-
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-family: $font-main;

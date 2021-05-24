@@ -10,10 +10,85 @@ title: "Apt",
     </h1>
     <p class="hero__notice">Apt takes care of the hassle of building a multifamily home  so you can get higher returns and increase property value.</p>
 
-    <button type="button" class="button button--main button-submit">
-      See if your property&nbsp;qualifies
-      <span class="icon icon-arrow-right"></span>
-    </button>
+    <form class="step-form">
+      <div class="step-form__step">
+        <button type="button" class="step-form-button">
+          See if your property&nbsp;qualifies <span class="icon icon-arrow-right"></span>
+        </button>
+      </div>
+
+      <div class="step-form__step step-form__step--address step-form__step--done">
+        <div class="step-form__input step-form__input-address">
+          <div class="step-form__input-label">Enter the address</div>
+          <input class="step-form__input-input" type="text" value="" placeholder="4427 Tiara St, Van Nuys, California">
+        </div>
+
+        <div class="step-form__right">
+          <button class="step-form__next" disabled="disabled">
+            <span class="icon icon-arrow-right"></span>
+          </button>
+
+          <div class="step-form__done">
+            <button class="step-form__edit" type="button">Edit</button>
+            <span class="icon icon-done"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-form__step step-form__step--info step-form__step--fullfilled">
+        <div class="step-form__counter">
+          2/3
+        </div>
+
+        <div class="step-form__input step-form__input--info">
+          <div class="step-form__input-label">Full Name</div>
+          <input class="step-form__input-input" type="text" value="" placeholder="Type name">
+        </div>
+
+        <div class="step-form__input step-form__input--info">
+          <div class="step-form__input-label">Email</div>
+          <input class="step-form__input-input" type="email" value="" placeholder="email@com">
+        </div>
+
+        <div class="step-form__input step-form__input--info">
+          <div class="step-form__input-label">Phone</div>
+          <input class="step-form__input-input" type="text" value="" placeholder="9 000 000000">
+        </div>
+
+        <button type="button" class="step-form__next" disabled>
+          <span class="text">I am the owner of this home</span>
+          <span class="icon icon-arrow-right"></span>
+        </button>
+      </div>
+
+      <div class="step-form__step step-form__step--poll">
+        <div class="step-form__counter">
+          3/3
+        </div>
+
+        <label class="radio step-form__radio--poll">
+          <input class="radio__input" type="radio">
+          <div class="radio__box"></div>
+          <div class="radio__label">I currently live in this home</div>
+        </label>
+
+        <label class="radio step-form__radio--poll">
+          <input class="radio__input" type="radio">
+          <div class="radio__box"></div>
+          <div class="radio__label">I currently have rental tenants in this home</div>
+        </label>
+
+        <label class="radio step-form__radio--poll">
+          <input class="radio__input" type="radio">
+          <div class="radio__box"></div>
+          <div class="radio__label">This home is vacant</div>
+        </label>
+
+        <button type="button" class="step-form-button step-form__see">
+          See if your property&nbsp;qualifies <span class="icon icon-arrow-right"></span>
+        </button>
+      </div>
+    </form>
   </section>
 
   <section class="section section-ill-1">
