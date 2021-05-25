@@ -26,21 +26,20 @@ DOMReady(() => {
     // });
   }
 
-  const stepForm = Array.from(
+  const stepFormList = Array.from(
     document.querySelectorAll(`.${STEP_FORM_CLASSES.CONTAINER}`),
   );
-  console.log({ stepForm });
-  if (stepForm.length > 0) {
-    stepForm.forEach(element => {
-      const form = new StepForm(element);
-
-      element
-        .querySelector('.step-form-start')
-        .addEventListener('click', () => {
-          form.nextStep();
-        });
-
-      window.nextStep = form.nextStep;
+  if (stepFormList.length > 0) {
+    stepFormList.forEach(element => {
+      const stepForm = new StepForm(element, {
+        onSubmit: values => {
+          return new Promise((resolve, reject) => {
+            console.log({ values });
+            return reject('Error');
+          });
+        },
+      });
+      window.nextStep = stepForm.nextStep;
     });
   }
 });
