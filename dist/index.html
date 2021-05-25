@@ -19,18 +19,133 @@
           <span class="hero__title--italic">multifamily</span>
         </h1>
         <p class="hero__notice">
-        Apt takes care of the hassle of building a multifamily home  so you can get higher returns and increase
-        property value.
+          Apt takes care of the hassle of building a multifamily home  so you can get higher returns and increase
+          property value.
         </p>
-
         <form class="step-form">
-          <button type="button" class="button button--main button-submit">
-            See if your property&nbsp;qualifies <span class="icon icon-arrow-right"></span>
-          </button>
-
-          <div class="step-form-address">
-            <span class="step-form-address__label">Enter the address</span>
-            <input type="text" value="" placeholder="4427 Tiara St, Van Nuys, California">
+          <div class="step-form__step">
+            <button type="button" class="step-form-button step-form-start">
+              See if your property&nbsp;qualifies <span class="icon icon-arrow-right"></span>
+            </button>
+          </div>
+          <div class="step-form__step step-form__step--address">
+            <div class="step-form__input step-form__input-address">
+              <div class="step-form__input-label">Enter the address</div>
+              <input
+                class="step-form__input-input"
+                name="address"
+                value=""
+                placeholder="4427 Tiara St, Van Nuys, California"
+              />
+            </div>
+            <div class="step-form__right">
+              <button type="button" class="step-form__next" data-form-next="" disabled="disabled">
+                <span class="icon icon-arrow-right"></span>
+              </button>
+              <div class="step-form__done">
+                <button class="step-form__edit" type="button">Edit</button> <span class="icon icon-done"></span>
+              </div>
+            </div>
+          </div>
+          <div class="step-form__step step-form__step--info">
+            <div class="step-form__input step-form__input--info">
+              <div class="step-form__input-label">Full Name</div>
+              <input class="step-form__input-input" name="name" value="" placeholder="Type name" />
+            </div>
+            <div class="step-form__input step-form__input--info">
+              <div class="step-form__input-label">Email</div>
+              <input class="step-form__input-input" type="email" name="email" value="" placeholder="email@com" />
+            </div>
+            <div class="step-form__input step-form__input--info">
+              <div class="step-form__input-label">Phone</div>
+              <input class="step-form__input-input" name="phone" value="" placeholder="9 000 000000" />
+            </div>
+            <button type="button" class="step-form__next" data-form-next="" disabled="disabled">
+              <span class="text">I am the owner of this home</span> <span class="icon icon-arrow-right"></span>
+            </button>
+            <div class="step-form__right">
+              <div class="step-form__counter">2/3</div>
+              <div class="step-form__done">
+                <button class="step-form__edit" type="button">Edit</button> <span class="icon icon-done"></span>
+              </div>
+            </div>
+          </div>
+          <div class="step-form__step-group">
+            <div class="step-form__step step-form__step--poll">
+              <label class="radio step-form__radio--poll"
+                ><input class="radio__input" type="radio" name="type" value="I currently live in this home" />
+                <div class="radio__box"></div>
+                <div class="radio__label">I currently live in this home</div></label
+              >
+              <label class="radio step-form__radio--poll"
+                ><input
+                  class="radio__input"
+                  type="radio"
+                  name="type"
+                  value="I currently have rental tenants in this home"
+                />
+                <div class="radio__box"></div>
+                <div class="radio__label">I currently have rental tenants in this home</div></label
+              >
+              <label class="radio step-form__radio--poll"
+                ><input class="radio__input" type="radio" name="type" value="This home is vacant" />
+                <div class="radio__box"></div>
+                <div class="radio__label">This home is vacant</div></label
+              >
+              <div class="step-form__bottom">
+                <button type="button" class="step-form-button step-form__see">
+                  See if your property&nbsp;qualifies <span class="icon icon-arrow-right"></span>
+                </button>
+              </div>
+              <div class="step-form__right">
+                <div class="step-form__counter">3/3</div>
+                <div class="step-form__done">
+                  <button class="step-form__edit" type="button">Edit</button> <span class="icon icon-done"></span>
+                </div>
+              </div>
+            </div>
+            <div class="step-form__step step-form__step--receive">
+              <p class="step-form__receive">
+                We can help you build up to N units on your property.<br />Book a 15 minute introductory call or have a
+                representative email you
+              </p>
+              <div class="step-form__receive-row">
+                <button type="button" class="step-form-button" data-form-next="">
+                  Book a call <span class="icon icon-arrow-right"></span>
+                </button>
+                <button type="submit" class="step-form-button">
+                  Email me <span class="icon icon-arrow-right"></span>
+                </button>
+              </div>
+            </div>
+            <div class="step-form__step step-form__step--book">
+              <p class="step-form__receive">BOOKING EMBEDED CALENDAR</p>
+              <div class="step-form__receive-row">
+                <button type="button" class="step-form-button step-form__back">
+                  <span class="icon icon-arrow-left"></span> Back
+                </button>
+                <button type="submit" class="step-form-button">
+                  Book a call <span class="icon icon-arrow-right"></span>
+                </button>
+              </div>
+            </div>
+            <div class="step-form__error">
+              <p class="step-form__error-text">
+                Sorry, but unfortunately we can’t help develop your property&nbsp;at this time. You can
+                <button type="button" class="step-form__error-refresh step-form__refresh">try again</button> if your
+                property’s zone changes. Thank you.
+              </p>
+            </div>
+            <div class="step-form__success">
+              <div class="step-form__success-row">
+                <p class="step-form__success-text">Success! Our representative will reach out to you asap!</p>
+                <span class="icon icon-done"></span>
+              </div>
+              <button type="button" class="step-form__success-refresh step-form__refresh">
+                <span class="step-form__refresh-text">clear and start again</span>
+                <span class="icon icon-refresh"></span>
+              </button>
+            </div>
           </div>
         </form>
       </section>
@@ -39,7 +154,7 @@
           <picture
             ><source srcset="images/ill-1@2x.png 2x, images/ill-1.png"/>
             <img src="images/ill-1.png" alt="Illustration"
-                                        /></picture>
+          /></picture>
         </div>
       </section>
       <section class="section section-features">
@@ -48,28 +163,28 @@
             <li class="features__item">
               <p class="features__title"><span class="features__number">1.</span>Best use</p>
               <p class="features__notice">
-              Apt designs a multifamily building that maximizes allowed use for your property and takes care of
-              permitting.
+                Apt designs a multifamily building that maximizes allowed use for your property and takes care of
+                permitting.
               </p>
             </li>
             <li class="features__item">
               <p class="features__title"><span class="features__number">2.</span>Risk free trial</p>
               <p class="features__notice">
-              We form a joint venture once the permit is approved. While unlikely, there’s no loss for you if the
-              permit’s declined.
+                We form a joint venture once the permit is approved. While unlikely, there’s no loss for you if the
+                permit’s declined.
               </p>
               <div class="features__image-container">
                 <picture
                   ><source srcset="images/ill-2@2x.png 2x, images/ill-2.png"/>
                   <img class="features__image" src="images/ill-2.png" alt="Illustration 2"
-                                                                      /></picture>
+                /></picture>
               </div>
             </li>
             <li class="features__item">
               <p class="features__title"><span class="features__number">3.</span>No extra cost</p>
               <p class="features__notice">
-              Apt covers all upfront costs and secures financing for the project. You contribute the land you already
-              own.
+                Apt covers all upfront costs and secures financing for the project. You contribute the land you already
+                own.
               </p>
             </li>
             <li class="features__item">
@@ -79,13 +194,13 @@
                 <picture
                   ><source srcset="images/ill-2@2x.png 2x, images/ill-2.png"/>
                   <img class="features__image features__image--bigger" src="images/ill-2.png" alt="Illustration 2"
-                                                                                              /></picture>
+                /></picture>
               </div>
             </li>
             <li class="features__item">
               <p class="features__title"><span class="features__number">5.</span>Increased value</p>
               <p class="features__notice">
-              You receive an increased cash flow from rentals, refinance, and eventual property sale.
+                You receive an increased cash flow from rentals, refinance, and eventual property sale.
               </p>
             </li>
           </ul>
