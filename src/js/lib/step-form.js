@@ -97,8 +97,8 @@ export class StepForm {
       return { element, animation };
     });
 
-    // this.refreshForm();
-    this.setStep(3);
+    this.refreshForm();
+    // this.setStep(3);
 
     ['input', 'change'].map(event => {
       this.container.addEventListener(event, () => {
