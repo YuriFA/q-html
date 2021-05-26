@@ -1,5 +1,7 @@
 import anime from 'animejs';
 
+import { isScrolledIntoView } from '../utils/isScrolledIntoView';
+
 export const CLASSES = {
   CONTAINER: 'step-form',
   STEP: 'step-form__step',
@@ -10,9 +12,12 @@ export const CLASSES = {
   REFRESH_BUTTON: 'step-form__refresh',
 };
 
+const DEFAULT_DURATION = 400;
+const OUT_DEFAULT_DURATION = 100;
+
 const DEFAULT_ANIMATION_PROPS = {
-  duration: 200,
-  easing: 'easeInOutQuad',
+  duration: DEFAULT_DURATION,
+  easing: 'cubicBezier(.5, .05, .1, .3)', // 'spring(2, 70, 50, 1)', // 'easeInOutQuad',
 };
 
 export class StepForm {
@@ -20,19 +25,80 @@ export class StepForm {
     this.container = container;
 
     this.currentStep = 0;
-    this.successStep = this.container.querySelector(`.${CLASSES.SUCCESS_STEP}`);
-    this.errorStep = this.container.querySelector(`.${CLASSES.ERROR_STEP}`);
     this.onSubmit = onSubmit;
     this.init();
   }
 
   init() {
+    this.successStep = {
+      element: this.container.querySelector(`.${CLASSES.SUCCESS_STEP}`),
+      animation: {
+        in: { opacity: { value: 1 }, zIndex: { value: 2 } },
+        out: { opacity: { value: 0 }, zIndex: { value: 1 } },
+      },
+    };
+    this.errorStep = {
+      element: this.container.querySelector(`.${CLASSES.ERROR_STEP}`),
+      animation: {
+        in: { opacity: { value: 1 }, zIndex: { value: 2 } },
+        out: { opacity: { value: 0 }, zIndex: { value: 1 } },
+      },
+    };
+
     this.steps = Array.from(
       this.container.querySelectorAll(`.${CLASSES.STEP}`),
-    );
+    ).map((element, index) => {
+      let animation = {};
+      switch (index) {
+        case 0:
+          animation = {
+            in: { opacity: { value: 1 } },
+            out: { opacity: { value: 0 } },
+          };
+          break;
 
-    this.refreshForm();
-    // this.setStep(0);
+        case 2:
+          animation = {
+            in: { opacity: { value: 1 }, translateY: { value: [100, 0] } },
+            out: { opacity: { value: 0 }, translateY: { value: [0, 100] } },
+          };
+          break;
+
+        case 1:
+          animation = {
+            in: {
+              opacity: { value: 1 },
+              maxWidth: { value: '100%', delay: 200 },
+            },
+            out: { opacity: { value: 0 }, maxWidth: { value: null } },
+          };
+          break;
+
+        case 3:
+        case 4:
+        case 5:
+          animation = {
+            in: {
+              opacity: { value: 1 },
+              zIndex: { value: 2 },
+              translateY: { value: [100, 0] },
+            },
+            out: {
+              opacity: { value: 0, duration: OUT_DEFAULT_DURATION },
+              zIndex: { value: 1, duration: OUT_DEFAULT_DURATION },
+              translateY: { value: [0, 100] },
+            },
+          };
+
+        default:
+          break;
+      }
+
+      return { element, animation };
+    });
+
+    // this.refreshForm();
+    this.setStep(3);
 
     ['input', 'change'].map(event => {
       this.container.addEventListener(event, () => {
@@ -44,20 +110,56 @@ export class StepForm {
     });
 
     const nextTriggers = Array.from(
-      this.container.querySelectorAll(
-        '.step-form-start, .step-form__next, .step-form__see',
-      ),
+      this.container.querySelectorAll('[data-form-next]'),
     );
-
     nextTriggers.forEach(element => {
       element.addEventListener('click', event => {
         const stepContainer = event.target.closest(`.${CLASSES.STEP}`);
         const stepIndex = this.steps.findIndex(
-          element => element === stepContainer,
+          step => step.element === stepContainer,
         );
 
-        console.log({ stepIndex, stepContainer });
+        if (stepIndex >= this.steps.length) {
+          return;
+        }
+
         this.setStep(stepIndex + 1);
+      });
+    });
+
+    const backTriggers = Array.from(
+      this.container.querySelectorAll('[data-form-back]'),
+    );
+    backTriggers.forEach(element => {
+      element.addEventListener('click', event => {
+        const stepContainer = event.target.closest(`.${CLASSES.STEP}`);
+        const stepIndex = this.steps.findIndex(
+          step => step.element === stepContainer,
+        );
+
+        if (stepIndex <= 0) {
+          return;
+        }
+
+        this.setStep(stepIndex - 1);
+      });
+    });
+
+    const editTriggers = Array.from(
+      this.container.querySelectorAll('[data-form-edit]'),
+    );
+    editTriggers.forEach(element => {
+      element.addEventListener('click', event => {
+        const stepContainer = event.target.closest(`.${CLASSES.STEP}`);
+        const stepIndex = this.steps.findIndex(
+          step => step.element === stepContainer,
+        );
+
+        if (stepIndex <= 0) {
+          return;
+        }
+
+        this.setStep(stepIndex);
       });
     });
 
@@ -88,7 +190,6 @@ export class StepForm {
   }
 
   validateStep = step => {
-    console.log('validateStep', { step });
     let validationResult = false;
     const formValues = new FormData(this.container);
 
@@ -128,8 +229,7 @@ export class StepForm {
   };
 
   visualizeStepFullfilled = (step, isValid) => {
-    console.log('visualizeStepFullfilled', { step, isValid });
-    const stepContainer = this.steps[step];
+    const stepContainer = this.steps[step].element;
     stepContainer.classList.toggle(CLASSES.STEP_FULLFILLED, isValid);
 
     const nextButton = stepContainer.querySelector('[data-form-next]');
@@ -138,19 +238,41 @@ export class StepForm {
     }
   };
 
-  setStep = step => {
+  setStep = (step, { scrollIntoView } = { scrollIntoView: true }) => {
     console.log('SET STEP', { step });
 
     this.toggleStepsVisibility(step);
     this.stepAnimation(step);
 
     const isValid = this.validateStep(step);
-    console.log({ step, isValid });
     this.visualizeStepFullfilled(step, isValid);
-
     this.setDonePreviousSteps(step);
 
+    if (scrollIntoView) {
+      this.scrollIntoView(step);
+    }
+
     this.currentStep = step;
+  };
+
+  scrollIntoView = step => {
+    const stepContainer = this.steps[step];
+
+    if (isScrolledIntoView(stepContainer.element)) {
+      return;
+    }
+
+    stepContainer.element.scrollIntoView({
+      block: 'center',
+      behavior: 'smooth',
+    });
+  };
+
+  setAnimationStyles = (stepContainer, type = 'in') => {
+    Object.keys(stepContainer.animation[type]).map(property => {
+      stepContainer.element.style[property] =
+        stepContainer.animation[type][property].value;
+    });
   };
 
   toggleStepsVisibility = step => {
@@ -160,181 +282,90 @@ export class StepForm {
       }
 
       if (step > index) {
-        switch (index) {
-          case 2:
-          case 3:
-          case 4:
-          case 5:
-            stepContainer.style.opacity = 1;
-            break;
-
-          case 1:
-            stepContainer.style.opacity = 1;
-            stepContainer.style.maxWidth = '100%';
-            break;
-
-          default:
-            break;
+        // if (index === 0 && step - index > 1) {
+        if (index === 0) {
+          return;
         }
+
+        if (index >= 3) {
+          return;
+        }
+
+        this.setAnimationStyles(stepContainer, 'in');
       } else if (step < index) {
         this.visualizeStepFullfilled(index, false);
-
-        switch (index) {
-          case 2:
-          case 3:
-          case 4:
-          case 5:
-            stepContainer.style.opacity = 0;
-            break;
-
-          case 1:
-            stepContainer.style.opacity = 0;
-            stepContainer.style.maxWidth = '';
-            break;
-
-          default:
-            break;
-        }
+        this.setAnimationStyles(stepContainer, 'out');
       }
     });
 
-    this.successStep.style.opacity = 0;
-    this.successStep.style.zIndex = '';
-
-    this.errorStep.style.opacity = 0;
-    this.errorStep.style.zIndex = '';
+    this.setAnimationStyles(this.successStep, 'out');
+    this.setAnimationStyles(this.errorStep, 'out');
   };
 
   setDonePreviousSteps = step => {
     this.steps.map((stepContainer, index) => {
       if (stepContainer) {
-        if (index < step) {
-          stepContainer.classList.add(CLASSES.STEP_DONE);
-        } else if (index > step) {
-          stepContainer.classList.remove(CLASSES.STEP_DONE);
-        }
+        stepContainer.element.classList.toggle(CLASSES.STEP_DONE, index < step);
       }
     });
   };
 
   stepAnimation = step => {
-    const prevStepContainer = this.steps[step - 1];
-    const nextStepContainer = this.steps[step];
+    const prevStep = this.steps[this.currentStep]; // this.steps[step - 1];
+    const nextStep = this.steps[step];
 
-    switch (step) {
-      case 0:
-        anime({
-          ...DEFAULT_ANIMATION_PROPS,
-          targets: nextStepContainer,
-          opacity: 1,
-        });
-        break;
-      case 1:
-        anime({
-          ...DEFAULT_ANIMATION_PROPS,
-          targets: prevStepContainer,
-          opacity: 0,
-        });
-        anime({
-          ...DEFAULT_ANIMATION_PROPS,
-          targets: nextStepContainer,
-          opacity: 1,
-          maxWidth: { delay: 200, value: '100%', duration: 200 },
-        });
-        break;
+    const isIgnorePrevAnimation =
+      this.currentStep < step && [1, 2].includes(this.currentStep);
 
-      case 2:
-        anime({
-          ...DEFAULT_ANIMATION_PROPS,
-          targets: nextStepContainer,
-          opacity: 1,
-        });
-        break;
-
-      case 3:
-        anime({
-          ...DEFAULT_ANIMATION_PROPS,
-          targets: nextStepContainer,
-          opacity: 1,
-          zIndex: 2,
-        });
-        break;
-
-      case 4:
-        anime({
-          ...DEFAULT_ANIMATION_PROPS,
-          targets: prevStepContainer,
-          opacity: 0,
-          zIndex: 1,
-        });
-        anime({
-          ...DEFAULT_ANIMATION_PROPS,
-          targets: nextStepContainer,
-          opacity: 1,
-          zIndex: 2,
-        });
-        break;
-
-      case 5:
-        anime({
-          ...DEFAULT_ANIMATION_PROPS,
-          targets: prevStepContainer,
-          opacity: 0,
-          zIndex: 1,
-        });
-        anime({
-          ...DEFAULT_ANIMATION_PROPS,
-          targets: nextStepContainer,
-          opacity: 1,
-          zIndex: 2,
-        });
-        break;
-
-      default:
-        break;
+    if (!isIgnorePrevAnimation && prevStep && prevStep.animation) {
+      anime({
+        targets: prevStep.element,
+        ...DEFAULT_ANIMATION_PROPS,
+        ...prevStep.animation.out,
+      });
     }
+
+    anime({
+      targets: nextStep.element,
+      ...DEFAULT_ANIMATION_PROPS,
+      ...nextStep.animation.in,
+    });
   };
 
   showSuccessStep = () => {
-    const prevStepContainer = this.steps[this.currentStep];
-    const nextStepContainer = this.successStep;
+    const prevStep = this.steps[this.currentStep];
+    const nextStep = this.successStep;
 
     anime({
+      targets: prevStep.element,
       ...DEFAULT_ANIMATION_PROPS,
-      targets: prevStepContainer,
-      opacity: 0,
-      zIndex: 1,
+      ...prevStep.animation.out,
     });
     anime({
+      targets: nextStep.element,
       ...DEFAULT_ANIMATION_PROPS,
-      targets: nextStepContainer,
-      opacity: 1,
-      zIndex: 2,
+      ...nextStep.animation.in,
     });
   };
 
   showErrorStep = () => {
-    const prevStepContainer = this.steps[this.currentStep];
-    const nextStepContainer = this.errorStep;
+    const prevStep = this.steps[this.currentStep];
+    const nextStep = this.errorStep;
 
     anime({
-      targets: prevStepContainer,
-      opacity: 0,
-      duration: 300,
-      zIndex: 1,
-      easing: 'easeInOutQuad',
+      targets: prevStep.element,
+      ...DEFAULT_ANIMATION_PROPS,
+      ...prevStep.animation.out,
     });
     anime({
-      targets: nextStepContainer,
-      opacity: 1,
-      duration: 300,
-      zIndex: 2,
-      easing: 'easeInOutQuad',
+      targets: nextStep.element,
+      ...DEFAULT_ANIMATION_PROPS,
+      ...nextStep.animation.in,
     });
   };
 
   refreshForm = () => {
-    this.setStep(0);
+    this.setStep(0, { scrollIntoView: false });
     this.container.reset();
   };
 }

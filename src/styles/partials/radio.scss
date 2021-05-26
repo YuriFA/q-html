@@ -1,6 +1,5 @@
 .radio {
   display: inline-flex;
-  align-items: center;
   vertical-align: middle;
   user-select: none;
   cursor: pointer;
@@ -14,14 +13,29 @@
 
 .radio__box {
   position: relative;
+  flex-shrink: 0;
   width: 24px;
   height: 24px;
-  border: 2px solid $color-white;
+  border: 2px solid rgba($color-white, 0.3);
   border-radius: 50%;
+
+  @media (max-width: $screen-sm) {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .radio__label {
   margin-left: 16px;
+  font-size: 22px;
+  line-height: 130%;
+  color: $color-white;
+
+  @media (max-width: $screen-sm) {
+    max-width: 185px;
+    margin-left: 12px;
+    font-size: 16px;
+  }
 }
 
 .radio__input:disabled ~ .radio__box {
@@ -43,11 +57,11 @@
     border-radius: 50%;
     background: $color-white;
   }
-}
 
-.radio__label {
-  font-size: 22px;
-  line-height: 130%;
-  color: $color-white;
+  @media (max-width: $screen-sm) {
+    &::after {
+      top: 2px;
+      left: 2px;
+    }
+  }
 }
-

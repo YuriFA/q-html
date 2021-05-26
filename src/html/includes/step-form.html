@@ -1,6 +1,6 @@
 <form class="step-form">
   <div class="step-form__step">
-    <button type="button" class="step-form-button step-form-start">
+    <button type="button" class="step-form-button step-form-start" data-form-next="">
       See if your property&nbsp;qualifies <span class="icon icon-arrow-right"></span>
     </button>
   </div>
@@ -17,7 +17,7 @@
       </button>
 
       <div class="step-form__done">
-        <button class="step-form__edit" type="button">Edit</button>
+        <button class="step-form__edit" type="button" data-form-edit="">Edit</button>
         <span class="icon icon-done"></span>
       </div>
     </div>
@@ -39,7 +39,7 @@
       <input class="step-form__input-input" type="text" name="phone" value="" placeholder="9 000 000000">
     </div>
 
-    <button type="button" class="step-form__next" data-form-next="" disabled>
+    <button type="button" class="step-form__next step-form__next--with-text" data-form-next="" disabled>
       <span class="text">I am the owner of this home</span>
       <span class="icon icon-arrow-right"></span>
     </button>
@@ -50,7 +50,7 @@
       </div>
 
       <div class="step-form__done">
-        <button class="step-form__edit" type="button">Edit</button>
+        <button class="step-form__edit" type="button" data-form-edit="">Edit</button>
         <span class="icon icon-done"></span>
       </div>
     </div>
@@ -77,7 +77,7 @@
       </label>
 
       <div class="step-form__bottom">
-        <button type="button" class="step-form-button step-form__see">
+        <button type="button" class="step-form-button step-form__see" data-form-next="">
           See if your property&nbsp;qualifies <span class="icon icon-arrow-right"></span>
         </button>
       </div>
@@ -88,7 +88,7 @@
         </div>
 
         <div class="step-form__done">
-          <button class="step-form__edit" type="button">Edit</button>
+          <button class="step-form__edit" type="button" data-form-edit="">Edit</button>
           <span class="icon icon-done"></span>
         </div>
       </div>
@@ -112,7 +112,7 @@
       <p class="step-form__receive">BOOKING EMBEDED CALENDAR</p>
 
       <div class="step-form__receive-row">
-        <button type="button" class="step-form-button step-form__back">
+        <button type="button" class="step-form-button step-form-button--back" data-form-back="">
           <span class="icon icon-arrow-left"></span>
           Back
         </button>

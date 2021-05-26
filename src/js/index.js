@@ -36,6 +36,7 @@ DOMReady(() => {
           return new Promise((resolve, reject) => {
             console.log({ values });
             return reject('Error');
+            // return resolve('Success');
           });
         },
       });
