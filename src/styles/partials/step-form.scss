@@ -70,7 +70,7 @@
   background-color: $color-secondary;
   border-radius: 50px;
   opacity: 0;
-  
+
   @media (max-width: $screen-sm) {
     padding: 28px 32px;
   }
@@ -516,7 +516,20 @@
   }
 
   @media (max-width: $screen-sm) {
-    padding: 28px 32px;
+    padding: 28px 32px 32px;
+
+    .step-form__receive-row {
+      flex-direction: column;
+      margin-top: 28px;
+
+      & > .step-form-button {
+        width: 100%;
+
+        &:not(:last-child) {
+          margin-bottom: 16px;
+        }
+      }
+    }
   }
 }
 
@@ -524,6 +537,12 @@
   font-size: 18px;
   line-height: 150%;
   color: $color-white;
+
+  @media (max-width: $screen-sm) {
+    & + & {
+      margin-top: 14px;
+    }
+  }
 }
 
 .step-form__receive-row {
