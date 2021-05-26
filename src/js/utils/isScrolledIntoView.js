@@ -1,6 +1,6 @@
 import { getElementOffset } from './getElementOffset';
 
-function getElementPosition(element) {
+export function getElementPosition(element) {
   const docViewTop =
     (document.documentElement && document.documentElement.scrollTop) ||
     document.body.scrollTop;

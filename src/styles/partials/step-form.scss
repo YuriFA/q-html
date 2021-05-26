@@ -369,6 +369,7 @@
 .step-form__input-input {
   @include input-reset;
 
+  max-width: 80%;
   font-size: 22px;
   line-height: 130%;
   letter-spacing: -0.05em;

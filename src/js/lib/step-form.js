@@ -1,6 +1,9 @@
 import anime from 'animejs';
+import smoothscroll from 'smoothscroll-polyfill';
 
-import { isScrolledIntoView } from '../utils/isScrolledIntoView';
+import { getElementPosition } from '../utils/isScrolledIntoView';
+
+smoothscroll.polyfill();
 
 export const CLASSES = {
   CONTAINER: 'step-form',
@@ -60,7 +63,11 @@ export class StepForm {
         case 2:
           animation = {
             in: { opacity: { value: 1 }, translateY: { value: [100, 0] } },
-            out: { opacity: { value: 0 }, translateY: { value: [0, 100] } },
+            out: {
+              opacity: { value: 0 },
+              translateY: { value: [0, 100] },
+              visibility: { value: 'hidden' },
+            },
           };
           break;
 
@@ -70,7 +77,11 @@ export class StepForm {
               opacity: { value: 1 },
               maxWidth: { value: '100%', delay: 200 },
             },
-            out: { opacity: { value: 0 }, maxWidth: { value: null } },
+            out: {
+              opacity: { value: 0 },
+              maxWidth: { value: null },
+              visibility: { value: 'hidden' },
+            },
           };
           break;
 
@@ -87,6 +98,7 @@ export class StepForm {
               opacity: { value: 0, duration: OUT_DEFAULT_DURATION },
               zIndex: { value: 1, duration: OUT_DEFAULT_DURATION },
               translateY: { value: [0, 100] },
+              visibility: { value: 'hidden' },
             },
           };
 
@@ -183,7 +195,7 @@ export class StepForm {
     if (refreshButtons) {
       refreshButtons.forEach(element => {
         element.addEventListener('click', () => {
-          this.refreshForm();
+          this.refreshForm(1, { scrollIntoView: true });
         });
       });
     }
@@ -258,14 +270,30 @@ export class StepForm {
   scrollIntoView = step => {
     const stepContainer = this.steps[step];
 
-    if (isScrolledIntoView(stepContainer.element)) {
+    const {
+      elemBottom,
+      docViewBottom,
+      elemTop,
+      docViewTop,
+    } = getElementPosition(stepContainer.element);
+
+    const isScrolledIntoView =
+      elemBottom <= docViewBottom && elemTop >= docViewTop;
+
+    if (isScrolledIntoView) {
       return;
     }
 
-    stepContainer.element.scrollIntoView({
-      block: 'center',
+    window.scroll({
+      top: elemTop - (elemBottom - elemTop) / 2 - window.innerHeight / 4,
+      left: 0,
       behavior: 'smooth',
     });
+
+    // stepContainer.element.scrollIntoView({
+    //   block: 'center',
+    //   behavior: 'smooth',
+    // });
   };
 
   setAnimationStyles = (stepContainer, type = 'in') => {
@@ -325,6 +353,7 @@ export class StepForm {
       });
     }
 
+    nextStep.element.style.visibility = '';
     anime({
       targets: nextStep.element,
       ...DEFAULT_ANIMATION_PROPS,
@@ -364,8 +393,8 @@ export class StepForm {
     });
   };
 
-  refreshForm = () => {
-    this.setStep(0, { scrollIntoView: false });
+  refreshForm = (step = 0, options = { scrollIntoView: false }) => {
+    this.setStep(step, options);
     this.container.reset();
   };
 }

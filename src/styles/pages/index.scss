@@ -71,6 +71,7 @@
 
   @media (max-width: $screen-sm) {
     img {
+      max-width: unset;
       width: auto;
       height: 400px;
     }

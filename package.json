@@ -43,6 +43,7 @@
     "nouislider": "^14.6.4",
     "postcss-pxtorem": "^4.0.0",
     "rellax": "^1.12.1",
+    "smoothscroll-polyfill": "^0.4.4",
     "swiper": "^6.5.1",
     "throttle-debounce": "^3.0.1",
     "tippy.js": "^6.3.1"

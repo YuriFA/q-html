@@ -13,6 +13,7 @@ ul {
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 
   @media (max-width: $screen-md-xx) {
     font-size: 58.5%;
@@ -45,7 +46,7 @@ body {
   line-height: 120%;
   letter-spacing: -0.05em;
   background-color: $color-background;
-  color: #000000;
+  color: $color-main;
 
   @media (max-width: $screen-md) {
     font-size: 24px;
