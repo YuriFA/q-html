@@ -15,6 +15,10 @@
   line-height: 95%;
   letter-spacing: -0.07em;
 
+  @media (max-width: $screen-md) {
+    font-size: 117px;
+  }
+
   @media (max-width: $screen-sm) {
     margin-bottom: 38px;
     font-size: 67px;
@@ -35,8 +39,12 @@
   margin-bottom: 156px;
 
   @media (max-width: $screen-sm) {
-    max-width: 325px;
+    max-width: 525px;
     margin-bottom: 80px;
+  }
+
+  @media (max-width: $screen-xs) {
+    max-width: 325px;
   }
 }
 
@@ -118,6 +126,10 @@
   font-size: 70px;
   line-height: 105%;
   letter-spacing: -0.07em;
+
+  @media (max-width: $screen-md) {
+    font-size: 60px;
+  }
 
   @media (max-width: $screen-sm) {
     margin-bottom: 84px;
@@ -276,10 +288,12 @@
   padding-top: 40px;
   padding-bottom: 32px;
   padding-left: 54px;
+  font-size: 24px;
 
   @media (max-width: $screen-sm) {
     padding-top: 16px;
     padding-bottom: 30px;
+    font-size: 20px;
   }
 }
 
@@ -329,6 +343,10 @@
 
   &:nth-child(8) .faq-alphabetic__id::before {
     content: "H";
+  }
+
+  @media (max-width: $screen-sm) {
+    font-size: 20px;
   }
 }
 

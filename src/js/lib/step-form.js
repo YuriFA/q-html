@@ -15,12 +15,13 @@ export const CLASSES = {
   REFRESH_BUTTON: 'step-form__refresh',
 };
 
-const DEFAULT_DURATION = 400;
-const OUT_DEFAULT_DURATION = 100;
+const DEFAULT_DURATION = 300;
+const OUT_DEFAULT_DURATION = 150;
 
 const DEFAULT_ANIMATION_PROPS = {
   duration: DEFAULT_DURATION,
-  easing: 'cubicBezier(.5, .05, .1, .3)', // 'spring(2, 70, 50, 1)', // 'easeInOutQuad',
+  easing: 'easeInSine', 
+  // easing: 'cubicBezier(.5, .05, .1, .3)', // 'spring(2, 70, 50, 1)', // 'easeInOutQuad',
 };
 
 export class StepForm {
@@ -37,14 +38,22 @@ export class StepForm {
       element: this.container.querySelector(`.${CLASSES.SUCCESS_STEP}`),
       animation: {
         in: { opacity: { value: 1 }, zIndex: { value: 2 } },
-        out: { opacity: { value: 0 }, zIndex: { value: 1 } },
+        out: {
+          opacity: { value: 0 },
+          zIndex: { value: 1 },
+          visibility: { value: 'hidden' },
+        },
       },
     };
     this.errorStep = {
       element: this.container.querySelector(`.${CLASSES.ERROR_STEP}`),
       animation: {
         in: { opacity: { value: 1 }, zIndex: { value: 2 } },
-        out: { opacity: { value: 0 }, zIndex: { value: 1 } },
+        out: {
+          opacity: { value: 0 },
+          zIndex: { value: 1 },
+          visibility: { value: 'hidden' },
+        },
       },
     };
 
@@ -370,6 +379,7 @@ export class StepForm {
       ...DEFAULT_ANIMATION_PROPS,
       ...prevStep.animation.out,
     });
+    nextStep.element.style.visibility = '';
     anime({
       targets: nextStep.element,
       ...DEFAULT_ANIMATION_PROPS,
@@ -386,6 +396,7 @@ export class StepForm {
       ...DEFAULT_ANIMATION_PROPS,
       ...prevStep.animation.out,
     });
+    nextStep.element.style.visibility = '';
     anime({
       targets: nextStep.element,
       ...DEFAULT_ANIMATION_PROPS,
