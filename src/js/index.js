@@ -1,3 +1,5 @@
+import '../styles/main.scss';
+
 import Accordion from 'accordion-js';
 
 import { DOMReady } from './utils/DOMReady';
@@ -32,9 +34,9 @@ DOMReady(() => {
     document.querySelectorAll(`.${STEP_FORM_CLASSES.CONTAINER}`),
   );
   if (stepFormList.length > 0) {
-    stepFormList.forEach(element => {
+    stepFormList.forEach((element) => {
       const stepForm = new StepForm(element, {
-        onSubmit: values => {
+        onSubmit: (values) => {
           return new Promise((resolve, reject) => {
             console.log({ values });
             return reject('Error');
