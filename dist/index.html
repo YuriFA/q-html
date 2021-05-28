@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no" />
+    <link rel="stylesheet" href="style.bundle.css?v=1.0.1" />
+    <title>Apt</title>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="header__content container">
+        <img src="images/logo.svg" alt="Apt" width="108" height="80" class="header__logo" />
+      </div>
+    </header>
+    <main class="main">
+      <section class="section container hero grid-main" id="hero">
+        <h1 class="hero__title">
+          Turn your <span class="hero__title--italic">single-family</span> rental into
+          <span class="hero__title--italic">multifamily</span>
+        </h1>
+        <p class="hero__notice">
+          Apt takes care of the hassle of building a multifamily home  so you can get higher returns and increase
+          property value.
+        </p>
+        <form class="step-form">
+          <div class="step-form__step">
+            <button type="button" class="step-form-button step-form-start" data-form-next="">
+              See if your property&nbsp;qualifies <span class="icon icon-arrow-right"></span>
+            </button>
+          </div>
+          <div class="step-form__step step-form__step--address">
+            <div class="step-form__input step-form__input-address">
+              <div class="step-form__input-label">Enter the address</div>
+              <input
+                class="step-form__input-input"
+                name="address"
+                value=""
+                placeholder="4427 Tiara St, Van Nuys, California"
+              />
+            </div>
+            <div class="step-form__right">
+              <button type="button" class="step-form__next" data-form-next="" disabled="disabled">
+                <span class="icon icon-arrow-right"></span>
+              </button>
+              <div class="step-form__done">
+                <button class="step-form__edit" type="button" data-form-edit="">Edit</button>
+                <span class="icon icon-done"></span>
+              </div>
+            </div>
+          </div>
+          <div class="step-form__step step-form__step--info">
+            <div class="step-form__input step-form__input--info">
+              <div class="step-form__input-label">Full Name</div>
+              <input class="step-form__input-input" name="name" value="" placeholder="Type name" />
+            </div>
+            <div class="step-form__input step-form__input--info">
+              <div class="step-form__input-label">Email</div>
+              <input class="step-form__input-input" type="email" name="email" value="" placeholder="email@com" />
+            </div>
+            <div class="step-form__input step-form__input--info">
+              <div class="step-form__input-label">Phone</div>
+              <input class="step-form__input-input" name="phone" value="" placeholder="9 000 000000" />
+            </div>
+            <button
+              type="button"
+              class="step-form__next step-form__next--with-text"
+              data-form-next=""
+              disabled="disabled"
+            >
+              <span class="text">I am the owner of this home</span> <span class="icon icon-arrow-right"></span>
+            </button>
+            <div class="step-form__right">
+              <div class="step-form__counter">2/3</div>
+              <div class="step-form__done">
+                <button class="step-form__edit" type="button" data-form-edit="">Edit</button>
+                <span class="icon icon-done"></span>
+              </div>
+            </div>
+          </div>
+          <div class="step-form__step-group">
+            <div class="step-form__step step-form__step--poll">
+              <label class="radio step-form__radio--poll"
+                ><input class="radio__input" type="radio" name="type" value="I currently live in this home" />
+                <div class="radio__box"></div>
+                <div class="radio__label">I currently live in this home</div></label
+              >
+              <label class="radio step-form__radio--poll"
+                ><input
+                  class="radio__input"
+                  type="radio"
+                  name="type"
+                  value="I currently have rental tenants in this home"
+                />
+                <div class="radio__box"></div>
+                <div class="radio__label">I currently have rental tenants in this home</div></label
+              >
+              <label class="radio step-form__radio--poll"
+                ><input class="radio__input" type="radio" name="type" value="This home is vacant" />
+                <div class="radio__box"></div>
+                <div class="radio__label">This home is vacant</div></label
+              >
+              <div class="step-form__bottom">
+                <button type="button" class="step-form-button step-form__see" data-form-next="">
+                  See if your property&nbsp;qualifies <span class="icon icon-arrow-right"></span>
+                </button>
+              </div>
+              <div class="step-form__right">
+                <div class="step-form__counter">3/3</div>
+                <div class="step-form__done">
+                  <button class="step-form__edit" type="button" data-form-edit="">Edit</button>
+                  <span class="icon icon-done"></span>
+                </div>
+              </div>
+            </div>
+            <div class="step-form__step step-form__step--receive">
+              <p class="step-form__receive">We can help you build up to N units on your property.</p>
+              <p class="step-form__receive">Book a 15 minute introductory call or have a representative email you</p>
+              <div class="step-form__receive-row">
+                <button type="button" class="step-form-button" data-form-next="">
+                  Book a call <span class="icon icon-arrow-right"></span>
+                </button>
+                <button type="submit" class="step-form-button">
+                  Email me <span class="icon icon-arrow-right"></span>
+                </button>
+              </div>
+            </div>
+            <div class="step-form__step step-form__step--book">
+              <p class="step-form__receive">BOOKING EMBEDED CALENDAR</p>
+              <div class="step-form__receive-row">
+                <button type="button" class="step-form-button step-form-button--back" data-form-back="">
+                  <span class="icon icon-arrow-left"></span> Back
+                </button>
+                <button type="submit" class="step-form-button">
+                  Book a call <span class="icon icon-arrow-right"></span>
+                </button>
+              </div>
+            </div>
+            <div class="step-form__error">
+              <p class="step-form__error-text">
+                Sorry, but unfortunately we can’t help develop your property&nbsp;at this time. You can
+                <button type="button" class="step-form__error-refresh step-form__refresh">try again</button> if your
+                property’s zone changes. Thank you.
+              </p>
+            </div>
+            <div class="step-form__success">
+              <div class="step-form__success-row">
+                <p class="step-form__success-text">Success! Our representative will reach out to you asap!</p>
+                <span class="icon icon-done"></span>
+              </div>
+              <button type="button" class="step-form__success-refresh step-form__refresh">
+                <span class="step-form__refresh-text">clear and start again</span>
+                <span class="icon icon-refresh"></span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+      <section class="section section-ill-1">
+        <div class="ill-1-container">
+          <picture
+            ><source srcset="images/ill-1@2x.png 2x, images/ill-1.png" />
+            <img src="images/ill-1.png" alt="Illustration"
+          /></picture>
+        </div>
+      </section>
+      <section class="section section-features">
+        <div class="container">
+          <ul class="features">
+            <li class="features__item">
+              <h2 class="features__title"><span class="features__number">1.</span>Best use</h2>
+              <p class="features__notice">
+                Apt designs a multifamily building that maximizes allowed use for your property and takes care of
+                permitting.
+              </p>
+            </li>
+            <li class="features__item">
+              <h2 class="features__title"><span class="features__number">2.</span>Risk free trial</h2>
+              <p class="features__notice">
+                We form a joint venture once the permit is approved. While unlikely, there’s no loss for you if the
+                permit’s declined.
+              </p>
+              <div class="features__image-container">
+                <picture
+                  ><source srcset="images/ill-2@2x.png 2x, images/ill-2.png" />
+                  <img class="features__image" src="images/ill-2.png" alt="Illustration 2"
+                /></picture>
+              </div>
+            </li>
+            <li class="features__item">
+              <h2 class="features__title"><span class="features__number">3.</span>No extra cost</h2>
+              <p class="features__notice">
+                Apt covers all upfront costs and secures financing for the project. You contribute the land you already
+                own.
+              </p>
+            </li>
+            <li class="features__item">
+              <h2 class="features__title"><span class="features__number">4.</span>Effortless construction</h2>
+              <p class="features__notice">Our team handles the entire process. You don’t have to lift a finger.</p>
+              <div class="features__image-container">
+                <picture
+                  ><source srcset="images/ill-2@2x.png 2x, images/ill-2.png" />
+                  <img class="features__image features__image--bigger" src="images/ill-2.png" alt="Illustration 2"
+                /></picture>
+              </div>
+            </li>
+            <li class="features__item">
+              <h2 class="features__title"><span class="features__number">5.</span>Increased value</h2>
+              <p class="features__notice">
+                You receive an increased cash flow from rentals, refinance, and eventual property sale.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="section section-submit-sticky">
+        <div class="container">
+          <form class="step-form">
+            <div class="step-form__step">
+              <button type="button" class="step-form-button step-form-start" data-form-next="">
+                See if your property&nbsp;qualifies <span class="icon icon-arrow-right"></span>
+              </button>
+            </div>
+            <div class="step-form__step step-form__step--address">
+              <div class="step-form__input step-form__input-address">
+                <div class="step-form__input-label">Enter the address</div>
+                <input
+                  class="step-form__input-input"
+                  name="address"
+                  value=""
+                  placeholder="4427 Tiara St, Van Nuys, California"
+                />
+              </div>
+              <div class="step-form__right">
+                <button type="button" class="step-form__next" data-form-next="" disabled="disabled">
+                  <span class="icon icon-arrow-right"></span>
+                </button>
+                <div class="step-form__done">
+                  <button class="step-form__edit" type="button" data-form-edit="">Edit</button>
+                  <span class="icon icon-done"></span>
+                </div>
+              </div>
+            </div>
+            <div class="step-form__step step-form__step--info">
+              <div class="step-form__input step-form__input--info">
+                <div class="step-form__input-label">Full Name</div>
+                <input class="step-form__input-input" name="name" value="" placeholder="Type name" />
+              </div>
+              <div class="step-form__input step-form__input--info">
+                <div class="step-form__input-label">Email</div>
+                <input class="step-form__input-input" type="email" name="email" value="" placeholder="email@com" />
+              </div>
+              <div class="step-form__input step-form__input--info">
+                <div class="step-form__input-label">Phone</div>
+                <input class="step-form__input-input" name="phone" value="" placeholder="9 000 000000" />
+              </div>
+              <button
+                type="button"
+                class="step-form__next step-form__next--with-text"
+                data-form-next=""
+                disabled="disabled"
+              >
+                <span class="text">I am the owner of this home</span> <span class="icon icon-arrow-right"></span>
+              </button>
+              <div class="step-form__right">
+                <div class="step-form__counter">2/3</div>
+                <div class="step-form__done">
+                  <button class="step-form__edit" type="button" data-form-edit="">Edit</button>
+                  <span class="icon icon-done"></span>
+                </div>
+              </div>
+            </div>
+            <div class="step-form__step-group">
+              <div class="step-form__step step-form__step--poll">
+                <label class="radio step-form__radio--poll"
+                  ><input class="radio__input" type="radio" name="type" value="I currently live in this home" />
+                  <div class="radio__box"></div>
+                  <div class="radio__label">I currently live in this home</div></label
+                >
+                <label class="radio step-form__radio--poll"
+                  ><input
+                    class="radio__input"
+                    type="radio"
+                    name="type"
+                    value="I currently have rental tenants in this home"
+                  />
+                  <div class="radio__box"></div>
+                  <div class="radio__label">I currently have rental tenants in this home</div></label
+                >
+                <label class="radio step-form__radio--poll"
+                  ><input class="radio__input" type="radio" name="type" value="This home is vacant" />
+                  <div class="radio__box"></div>
+                  <div class="radio__label">This home is vacant</div></label
+                >
+                <div class="step-form__bottom">
+                  <button type="button" class="step-form-button step-form__see" data-form-next="">
+                    See if your property&nbsp;qualifies <span class="icon icon-arrow-right"></span>
+                  </button>
+                </div>
+                <div class="step-form__right">
+                  <div class="step-form__counter">3/3</div>
+                  <div class="step-form__done">
+                    <button class="step-form__edit" type="button" data-form-edit="">Edit</button>
+                    <span class="icon icon-done"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="step-form__step step-form__step--receive">
+                <p class="step-form__receive">We can help you build up to N units on your property.</p>
+                <p class="step-form__receive">Book a 15 minute introductory call or have a representative email you</p>
+                <div class="step-form__receive-row">
+                  <button type="button" class="step-form-button" data-form-next="">
+                    Book a call <span class="icon icon-arrow-right"></span>
+                  </button>
+                  <button type="submit" class="step-form-button">
+                    Email me <span class="icon icon-arrow-right"></span>
+                  </button>
+                </div>
+              </div>
+              <div class="step-form__step step-form__step--book">
+                <p class="step-form__receive">BOOKING EMBEDED CALENDAR</p>
+                <div class="step-form__receive-row">
+                  <button type="button" class="step-form-button step-form-button--back" data-form-back="">
+                    <span class="icon icon-arrow-left"></span> Back
+                  </button>
+                  <button type="submit" class="step-form-button">
+                    Book a call <span class="icon icon-arrow-right"></span>
+                  </button>
+                </div>
+              </div>
+              <div class="step-form__error">
+                <p class="step-form__error-text">
+                  Sorry, but unfortunately we can’t help develop your property&nbsp;at this time. You can
+                  <button type="button" class="step-form__error-refresh step-form__refresh">try again</button> if your
+                  property’s zone changes. Thank you.
+                </p>
+              </div>
+              <div class="step-form__success">
+                <div class="step-form__success-row">
+                  <p class="step-form__success-text">Success! Our representative will reach out to you asap!</p>
+                  <span class="icon icon-done"></span>
+                </div>
+                <button type="button" class="step-form__success-refresh step-form__refresh">
+                  <span class="step-form__refresh-text">clear and start again</span>
+                  <span class="icon icon-refresh"></span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+      <section class="section section-faq">
+        <div class="container">
+          <ul class="faq">
+            <li class="faq__item">
+              <p class="faq__title">Process</p>
+              <ul class="faq__list faq-questions">
+                <li class="faq-questions__item">
+                  <div class="faq-questions__title">
+                    <span class="faq-questions__expand"></span> How does a typical project happen?
+                  </div>
+                  <div class="faq-questions__panel">
+                    <div class="faq-questions__panel-content">
+                      <ul class="faq-alphabetic">
+                        <li class="faq-alphabetic__item">
+                          <div class="faq-alphabetic__id"></div>
+                          <b>Introduction</b>. First, we learn about your objectives and your property. We can evaluate
+                          your unique situation and present a development scenario.
+                        </li>
+                        <li class="faq-alphabetic__item">
+                          <div class="faq-alphabetic__id"></div>
+                          <b>Initial Agreement.</b> Once you are comfortable with the proposal, we sign an agreement
+                          that covers the period until partnership formation and title transfer.
+                        </li>
+                        <li class="faq-alphabetic__item">
+                          <div class="faq-alphabetic__id"></div>
+                          <b>Design and Permitting.</b> Apt invests at-risk capital to complete site surveys, design and
+                          permit the new development.
+                        </li>
+                        <li class="faq-alphabetic__item">
+                          <div class="faq-alphabetic__id"></div>
+                          <b>Partnership and Title Transfer.</b> Once the project is fully entitled and permitted, we
+                          form a joint venture partnership to which you transfer your land.
+                        </li>
+                        <li class="faq-alphabetic__item">
+                          <div class="faq-alphabetic__id"></div>
+                          <b>Funding.</b> Apt raises outstanding capital to develop the property.
+                        </li>
+                        <li class="faq-alphabetic__item">
+                          <div class="faq-alphabetic__id"></div>
+                          <b>Construction.</b> Apt retains an experienced general contractor and oversees the
+                          construction of the building. Apt receives a development fee for successful project
+                          completion.
+                        </li>
+                        <li class="faq-alphabetic__item">
+                          <div class="faq-alphabetic__id"></div>
+                          <b>Operations.</b> Apt oversees property management and distributes free cash to you, other
+                          capital partners, and a share to itself.
+                        </li>
+                        <li class="faq-alphabetic__item">
+                          <div class="faq-alphabetic__id"></div>
+                          <b>Sale.</b> Apt coordinates the property sale after an agreed upon hold period.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li class="faq-questions__item">
+                  <div class="faq-questions__title">
+                    <span class="faq-questions__expand"></span> How long does the permitting usually take?
+                  </div>
+                  <div class="faq-questions__panel">
+                    <div class="faq-questions__panel-content">
+                      The permitting process may vary, in today’s conditions it may take 6 to 9 months for our typical
+                      project. You can keep receiving rental income in full while we permit the new building.
+                    </div>
+                  </div>
+                </li>
+                <li class="faq-questions__item">
+                  <div class="faq-questions__title">
+                    <span class="faq-questions__expand"></span> What is a by-right project?
+                  </div>
+                  <div class="faq-questions__panel">
+                    <div class="faq-questions__panel-content">
+                      The permitting process may vary, in today’s conditions it may take 6 to 9 months for our typical
+                      project. You can keep receiving rental income in full while we permit the new building.
+                    </div>
+                  </div>
+                </li>
+                <li class="faq-questions__item">
+                  <div class="faq-questions__title">
+                    <span class="faq-questions__expand"></span> Can my neighbors stop the project?
+                  </div>
+                  <div class="faq-questions__panel">
+                    <div class="faq-questions__panel-content">
+                      The permitting process may vary, in today’s conditions it may take 6 to 9 months for our typical
+                      project. You can keep receiving rental income in full while we permit the new building.
+                    </div>
+                  </div>
+                </li>
+                <li class="faq-questions__item">
+                  <div class="faq-questions__title">
+                    <span class="faq-questions__expand"></span> How long does construction normally take?
+                  </div>
+                  <div class="faq-questions__panel">
+                    <div class="faq-questions__panel-content">
+                      The permitting process may vary, in today’s conditions it may take 6 to 9 months for our typical
+                      project. You can keep receiving rental income in full while we permit the new building.
+                    </div>
+                  </div>
+                </li>
+                <li class="faq-questions__item">
+                  <div class="faq-questions__title">
+                    <span class="faq-questions__expand"></span> How do I know if it’s legal to build on my property?
+                  </div>
+                  <div class="faq-questions__panel">
+                    <div class="faq-questions__panel-content">
+                      The permitting process may vary, in today’s conditions it may take 6 to 9 months for our typical
+                      project. You can keep receiving rental income in full while we permit the new building.
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li class="faq__item">
+              <p class="faq__title">Property</p>
+              <ul class="faq__list faq-questions">
+                <li class="faq-questions__item">
+                  <div class="faq-questions__title">
+                    <span class="faq-questions__expand"></span> When would I need to transfer the title of my land?
+                  </div>
+                  <div class="faq-questions__panel">
+                    <div class="faq-questions__panel-content">
+                      The permitting process may vary, in today’s conditions it may take 6 to 9 months for our typical
+                      project. You can keep receiving rental income in full while we permit the new building.
+                    </div>
+                  </div>
+                </li>
+                <li class="faq-questions__item">
+                  <div class="faq-questions__title">
+                    <span class="faq-questions__expand"></span> What would happen to my existing tenants?
+                  </div>
+                  <div class="faq-questions__panel">
+                    <div class="faq-questions__panel-content">
+                      The permitting process may vary, in today’s conditions it may take 6 to 9 months for our typical
+                      project. You can keep receiving rental income in full while we permit the new building.
+                    </div>
+                  </div>
+                </li>
+                <li class="faq-questions__item">
+                  <div class="faq-questions__title">
+                    <span class="faq-questions__expand"></span> What would I need to do to permit the building?
+                  </div>
+                  <div class="faq-questions__panel">
+                    <div class="faq-questions__panel-content">
+                      The permitting process may vary, in today’s conditions it may take 6 to 9 months for our typical
+                      project. You can keep receiving rental income in full while we permit the new building.
+                    </div>
+                  </div>
+                </li>
+                <li class="faq-questions__item">
+                  <div class="faq-questions__title">
+                    <span class="faq-questions__expand"></span> What happens if the permit doesn’t get approved?
+                  </div>
+                  <div class="faq-questions__panel">
+                    <div class="faq-questions__panel-content">
+                      The permitting process may vary, in today’s conditions it may take 6 to 9 months for our typical
+                      project. You can keep receiving rental income in full while we permit the new building.
+                    </div>
+                  </div>
+                </li>
+                <li class="faq-questions__item">
+                  <div class="faq-questions__title">
+                    <span class="faq-questions__expand"></span> Can I decide when the new building will be sold?
+                  </div>
+                  <div class="faq-questions__panel">
+                    <div class="faq-questions__panel-content">
+                      The permitting process may vary, in today’s conditions it may take 6 to 9 months for our typical
+                      project. You can keep receiving rental income in full while we permit the new building.
+                    </div>
+                  </div>
+                </li>
+                <li class="faq-questions__item">
+                  <div class="faq-questions__title">
+                    <span class="faq-questions__expand"></span> How do you value my land contribution?
+                  </div>
+                  <div class="faq-questions__panel">
+                    <div class="faq-questions__panel-content">
+                      The permitting process may vary, in today’s conditions it may take 6 to 9 months for our typical
+                      project. You can keep receiving rental income in full while we permit the new building.
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li class="faq__item">
+              <p class="faq__title">You Financials</p>
+              <ul class="faq__list faq-questions">
+                <li class="faq-questions__item">
+                  <div class="faq-questions__title">
+                    <span class="faq-questions__expand"></span> What would happen to my existing mortgage?
+                  </div>
+                  <div class="faq-questions__panel">
+                    <div class="faq-questions__panel-content">
+                      The permitting process may vary, in today’s conditions it may take 6 to 9 months for our typical
+                      project. You can keep receiving rental income in full while we permit the new building.
+                    </div>
+                  </div>
+                </li>
+                <li class="faq-questions__item">
+                  <div class="faq-questions__title">
+                    <span class="faq-questions__expand"></span> What would happen to my rental income during the
+                    construction period?
+                  </div>
+                  <div class="faq-questions__panel">
+                    <div class="faq-questions__panel-content">
+                      The permitting process may vary, in today’s conditions it may take 6 to 9 months for our typical
+                      project. You can keep receiving rental income in full while we permit the new building.
+                    </div>
+                  </div>
+                </li>
+                <li class="faq-questions__item">
+                  <div class="faq-questions__title">
+                    <span class="faq-questions__expand"></span> Would I need to pay more taxes?
+                  </div>
+                  <div class="faq-questions__panel">
+                    <div class="faq-questions__panel-content">
+                      The permitting process may vary, in today’s conditions it may take 6 to 9 months for our typical
+                      project. You can keep receiving rental income in full while we permit the new building.
+                    </div>
+                  </div>
+                </li>
+                <li class="faq-questions__item">
+                  <div class="faq-questions__title">
+                    <span class="faq-questions__expand"></span> How much more would my property be worth?
+                  </div>
+                  <div class="faq-questions__panel">
+                    <div class="faq-questions__panel-content">
+                      The permitting process may vary, in today’s conditions it may take 6 to 9 months for our typical
+                      project. You can keep receiving rental income in full while we permit the new building.
+                    </div>
+                  </div>
+                </li>
+                <li class="faq-questions__item">
+                  <div class="faq-questions__title">
+                    <span class="faq-questions__expand"></span> What is a multifamily building?
+                  </div>
+                  <div class="faq-questions__panel">
+                    <div class="faq-questions__panel-content">
+                      The permitting process may vary, in today’s conditions it may take 6 to 9 months for our typical
+                      project. You can keep receiving rental income in full while we permit the new building.
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li class="faq__item">
+              <p class="faq__title">New Building</p>
+              <ul class="faq__list faq-questions">
+                <li class="faq-questions__item">
+                  <div class="faq-questions__title">
+                    <span class="faq-questions__expand"></span> When can I see how the new building would look?
+                  </div>
+                  <div class="faq-questions__panel">
+                    <div class="faq-questions__panel-content">
+                      The permitting process may vary, in today’s conditions it may take 6 to 9 months for our typical
+                      project. You can keep receiving rental income in full while we permit the new building.
+                    </div>
+                  </div>
+                </li>
+                <li class="faq-questions__item">
+                  <div class="faq-questions__title">
+                    <span class="faq-questions__expand"></span> How big would the new building be?
+                  </div>
+                  <div class="faq-questions__panel">
+                    <div class="faq-questions__panel-content">
+                      The permitting process may vary, in today’s conditions it may take 6 to 9 months for our typical
+                      project. You can keep receiving rental income in full while we permit the new building.
+                    </div>
+                  </div>
+                </li>
+                <li class="faq-questions__item">
+                  <div class="faq-questions__title">
+                    <span class="faq-questions__expand"></span> Can I decide what building you would build?
+                  </div>
+                  <div class="faq-questions__panel">
+                    <div class="faq-questions__panel-content">
+                      The permitting process may vary, in today’s conditions it may take 6 to 9 months for our typical
+                      project. You can keep receiving rental income in full while we permit the new building.
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li class="faq__item">
+              <p class="faq__title">Apt</p>
+              <ul class="faq__list faq-questions">
+                <li class="faq-questions__item">
+                  <div class="faq-questions__title">
+                    <span class="faq-questions__expand"></span> How does Apt make money?
+                  </div>
+                  <div class="faq-questions__panel">
+                    <div class="faq-questions__panel-content">
+                      The permitting process may vary, in today’s conditions it may take 6 to 9 months for our typical
+                      project. You can keep receiving rental income in full while we permit the new building.
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__content container">
+        <p class="footer__copyrights"><span>Apt</span> Buildings, Inc. — 2021</p>
+        <nav class="footer-nav">
+          <ul class="footer-nav__list">
+            <li class="footer-nav__item"><a class="link" href="mailto:contact@apt.re">contact@apt.re</a></li>
+            <li class="footer-nav__item"><a class="link" href="#">Twitter</a></li>
+            <li class="footer-nav__item"><a class="link" href="#">Terms & Conditions</a></li>
+            <li class="footer-nav__item"><a class="link" href="#">Privacy Policy</a></li>
+            <li class="footer-nav__item"><a class="link" href="#">Credits</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <script src="js/bundle.js?v=1.0.1"></script>
+  </body>
+</html>
