@@ -3,7 +3,7 @@ import '../styles/main.scss';
 import Accordion from 'accordion-js';
 
 import { DOMReady } from './utils/DOMReady';
-import { InputAutocomplete } from './lib/autocomplete';
+// import { InputAutocomplete } from './lib/autocomplete';
 import { StepForm, CLASSES as STEP_FORM_CLASSES } from './lib/step-form';
 
 DOMReady(() => {
